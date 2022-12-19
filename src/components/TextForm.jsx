@@ -4,10 +4,12 @@ export default function TextForm(props) {
   const handleUpClick = () => {
     let newText = text.toUpperCase();
     setText(newText);
+    props.showAlert("Converted to Upper case", "success");
   }
   const handleLowClick = () => {
     let newText = text.toLowerCase();
     setText(newText);
+    props.showAlert("Converted to Lower case", "success");
   }
   const handleClearClick = () => {
     setText("Enter the text here");
@@ -17,6 +19,7 @@ export default function TextForm(props) {
     var text = document.getElementById("myBox");
     text.select();
     navigator.clipboard.writeText(text.value);
+    props.showAlert("The text has been copied to clipboard", "success");
   }
 
   const handleOnChange = (event) => {
